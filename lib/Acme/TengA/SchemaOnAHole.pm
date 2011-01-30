@@ -28,12 +28,14 @@ Acme::TengA::SchemaOnAHole - Advance and make a hole to Teng::Schema::Declare
     
     table_in_private_room {
         name "table1";
+        pk   'col1';
         columns qw( col1 col2 col3 );
         foo 'foo', 'bar';
     };
     
     table_in_private_room {
         name "table2";
+        pk   'col1';
         columns qw( col1 col2 );
         foo 'bar', 'baz';
     };
@@ -67,6 +69,7 @@ Acme::TengA::SchemaOnAHole - Advance and make a hole to Teng::Schema::Declare
     
     table_in_private_room {
         name "table1";
+        pk   'col1';
         columns qw( col1 col2 col3 );
         bar 'foo', 'bar';
     };
@@ -130,6 +133,10 @@ If you use your introduced functions in normal C<table>, it croaks.
 =head1 CAVEAT
 
 You cannot set C<prototype> to introduced functions
+
+If you use your introduced functions in normal C<table>, it croaks.
+
+Introduced functoins are executed after other normal functions (C<pk>, C<columns>, etc...).
 
 =head1 SEE ALSO
 
